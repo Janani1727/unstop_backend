@@ -100,6 +100,40 @@ Seat_Route.put("/cancel", async (req, res) => {
 
 
 
+Seat_Route.put("/cancel", async (req, res) => {
+
+    const {seatid} = req.body;
+
+    const update = { $set: { status: "available"} };
+
+ 
+    try {
+        const user = await SeatModel.findByIdAndUpdate(seatid, update);
+        res.status(200).json("Booking Successfully cancel");
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+
+});
+
+
+Seat_Route.put("/id/:id", async (req, res) => {
+
+    const {seatid,seatNumber} = req.body;
+const id = req.params.id
+console.log(seatid,id)
+    const update = { $set: { id: seatid, seatNumber:seatNumber} };
+
+ 
+    try {
+        const user = await SeatModel.findByIdAndUpdate(id, update);
+        res.status(200).json(user);
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+
+});
+
 
 
 module.exports = {
