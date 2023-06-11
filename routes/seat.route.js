@@ -43,7 +43,7 @@ Seat_Route.post('/book', async (req, res) => {
         }
       }
   
-      const update = { $set: { status: "booked" } };
+      const update = { $set: { status: false } };
   
       if (bookseat.length !== 0) {
         for (let i = 0; i < bookseat.length; i++) {
@@ -85,7 +85,7 @@ Seat_Route.put("/cancel", async (req, res) => {
 
     const {seatid} = req.body;
 
-    const update = { $set: { status: "available"} };
+    const update = { $set: { status: true} };
 
  
     try {
