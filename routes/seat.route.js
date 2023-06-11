@@ -69,51 +69,35 @@ Seat_Route.post("/add", async (req, res) => {
 });
 
 
-// Seat_Route.delete("/:id", async (req, res) => {
-//     // if (req.body.userId === req.params.id || req.body.isAdmin) {
-//     try {
-//         await SeatModel.findByIdAndDelete(req.params.id);
-//         res.status(200).json("Post has been deleted");
-//     } catch (err) {
-//         return res.status(500).json(err);
-//     }
+Seat_Route.delete("/:id", async (req, res) => {
+    // if (req.body.userId === req.params.id || req.body.isAdmin) {
+    try {
+        await SeatModel.findByIdAndDelete(req.params.id);
+        res.status(200).json("Post has been deleted");
+    } catch (err) {
+        return res.status(500).json(err);
+    }
 
-// });
-
-
-// Seat_Route.put("/cancel", async (req, res) => {
-
-//     const {seatid} = req.body;
-
-//     const update = { $set: { status: "available"} };
-
- 
-//     try {
-//         const user = await SeatModel.findByIdAndUpdate(seatid, update);
-//         res.status(200).json("Booking Successfully cancel");
-//     } catch (err) {
-//         return res.status(500).json(err);
-//     }
-
-// });
+});
 
 
-// Seat_Route.put("/id/:id", async (req, res) => {
+Seat_Route.put("/cancel", async (req, res) => {
 
-//     const {seatid,seatNumber} = req.body;
-// const id = req.params.id
-// console.log(seatid,id)
-//     const update = { $set: { id: seatid, seatNumber:seatNumber} };
+    const {seatid} = req.body;
+
+    const update = { $set: { status: "available"} };
 
  
-//     try {
-//         const user = await SeatModel.findByIdAndUpdate(id, update);
-//         res.status(200).json(user);
-//     } catch (err) {
-//         return res.status(500).json(err);
-//     }
+    try {
+        const user = await SeatModel.findByIdAndUpdate(seatid, update);
+        res.status(200).json("Booking Successfully cancel");
+    } catch (err) {
+        return res.status(500).json(err);
+    }
 
-// });
+});
+
+
 
 
 
