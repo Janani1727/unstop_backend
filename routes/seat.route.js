@@ -57,14 +57,48 @@ Seat_Route.put("/removeseat", async (req, res) => {
     const update = { $set: { status: "true"} };
 
  
+
+    // try {
+    //     const user = await SeatModel.updateMany(update)
+    //     res.status(200).json("Booking  cancelled");
+    // } catch (err) {
+    //     return res.status(500).json(err);
+    // }
+
+    // try {
+    //     const user = await SeatModel.findByIdAndUpdate(seatid, update);
+    //     res.status(200).json("Booking  cancelled");
+    // } catch (err) {
+    //     return res.status(500).json(err);
+    // }
+
+});
+
+
+
+
+
+
+Seat_Route.put("/removeall", async (req, res) => {
+
+   
+
+    const update = { $set: { status: "true"} };
+
+ 
+
     try {
-        const user = await SeatModel.findByIdAndUpdate(seatid, update);
+        const user = await SeatModel.updateMany(update)
         res.status(200).json("Booking  cancelled");
     } catch (err) {
         return res.status(500).json(err);
     }
 
+  
+
 });
+
+
 
 
 
