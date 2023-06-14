@@ -58,19 +58,14 @@ Seat_Route.put("/removeseat", async (req, res) => {
 
  
 
-    // try {
-    //     const user = await SeatModel.updateMany(update)
-    //     res.status(200).json("Booking  cancelled");
-    // } catch (err) {
-    //     return res.status(500).json(err);
-    // }
+    
 
-    // try {
-    //     const user = await SeatModel.findByIdAndUpdate(seatid, update);
-    //     res.status(200).json("Booking  cancelled");
-    // } catch (err) {
-    //     return res.status(500).json(err);
-    // }
+    try {
+        const user = await SeatModel.findByIdAndUpdate(seatid, update);
+        res.status(200).json("Booking  cancelled");
+    } catch (err) {
+        return res.status(500).json(err);
+    }
 
 });
 
